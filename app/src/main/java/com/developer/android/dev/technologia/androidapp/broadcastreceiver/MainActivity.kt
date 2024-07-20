@@ -29,17 +29,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         receiver = AirplaneModeReceiver()
 
-//        network = NetworkChangeReceiver()
+        network = NetworkChangeReceiver()
 
         val textView = findViewById<TextView>(R.id.batteryLevel)
         batteryLevelReceiver = BatteryLevelReceiver(textView)
-
-
-//        val goToNetworkLayer = this.findViewById<Button>(R.id.btn_network)
-//        goToNetworkLayer.setOnClickListener {
-//            startActivity(Intent(this@MainActivity,NetworkLayer2::class.java))
-//        }
-
 
 
         IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED).also {
@@ -47,16 +40,15 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
     }
 
     override fun onResume() {
         super.onResume()
 
-//        val intentFilter = IntentFilter().apply {
-//            addAction(ConnectivityManager.CONNECTIVITY_ACTION)
-//        }
-//        registerReceiver(network,intentFilter)
+        val intentFilter = IntentFilter().apply {
+            addAction(ConnectivityManager.CONNECTIVITY_ACTION)
+        }
+        registerReceiver(network,intentFilter)
 
         registerReceiver(batteryLevelReceiver, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
     }
@@ -64,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
         unregisterReceiver(receiver)
-//        unregisterReceiver(network)
+        unregisterReceiver(network)
         unregisterReceiver(batteryLevelReceiver)
     }
 }
