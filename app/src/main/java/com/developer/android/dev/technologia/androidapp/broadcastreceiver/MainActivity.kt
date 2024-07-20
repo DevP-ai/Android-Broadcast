@@ -1,5 +1,6 @@
 package com.developer.android.dev.technologia.androidapp.broadcastreceiver
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.IntentFilter
 import android.net.ConnectivityManager
@@ -8,6 +9,7 @@ import android.net.NetworkRequest
 import android.os.Build
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -18,7 +20,10 @@ class MainActivity : AppCompatActivity() {
     lateinit var receiver: AirplaneModeReceiver
     lateinit var network : NetworkChangeReceiver
     lateinit var connectivityManager: ConnectivityManager
+    private lateinit var batteryLevelReceiver: BatteryLevelReceiver
 
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -26,11 +31,14 @@ class MainActivity : AppCompatActivity() {
 
 //        network = NetworkChangeReceiver()
 
+        val textView = findViewById<TextView>(R.id.batteryLevel)
+        batteryLevelReceiver = BatteryLevelReceiver(textView)
 
-        val goToNetworkLayer = this.findViewById<Button>(R.id.btn_network)
-        goToNetworkLayer.setOnClickListener {
-            startActivity(Intent(this@MainActivity,NetworkLayer2::class.java))
-        }
+
+//        val goToNetworkLayer = this.findViewById<Button>(R.id.btn_network)
+//        goToNetworkLayer.setOnClickListener {
+//            startActivity(Intent(this@MainActivity,NetworkLayer2::class.java))
+//        }
 
 
 
@@ -49,11 +57,14 @@ class MainActivity : AppCompatActivity() {
 //            addAction(ConnectivityManager.CONNECTIVITY_ACTION)
 //        }
 //        registerReceiver(network,intentFilter)
+
+        registerReceiver(batteryLevelReceiver, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
     }
 
     override fun onStop() {
         super.onStop()
         unregisterReceiver(receiver)
 //        unregisterReceiver(network)
+        unregisterReceiver(batteryLevelReceiver)
     }
 }
