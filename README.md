@@ -37,4 +37,16 @@
 <b>Network Connectivity Changes:</b> Sent when the device's network connectivity changes, allowing apps to respond to changes in network status or availability.
 
 <b>Timezone Changes:</b> Sent when the device's timezone changes, allowing apps to adjust their behavior or update time-sensitive information.
+
+## Types of Broadcast:
+
+### Custom Broadcasts: 
+Custom Broadcasts are app-specific messages that can be defined using a unique action string, sent using the sendBroadcast() method, and handled by a Broadcast Receiver to perform app-specific tasks.
    
+### Local Broadcasts:
+Local Broadcasts are used by an app to communicate with its own components, such as Activities, Services, and Broadcast Receivers, within the same process. These broadcasts are not sent outside of the app and are not visible to other apps or users. To send a Local Broadcast, an app creates an Intent object with a custom action string and any extra data it wants to include. The LocalBroadcastManager class is then used to send the Intent to all registered Broadcast Receivers within the same app's process. Local Broadcasts are useful for intra-app communication without exposing data to other apps or users.
+
+LocalBroadcastManager is a lightweight alternative to using Intents to communicate between components in your app. It has several benefits over using Intents, including improved performance and security. Since LocalBroadcastManager only broadcasts to components within your app, it is more efficient than using a global broadcast. Additionally, since broadcasts are not sent outside of your app, there is no risk of sensitive data being leaked. Finally, LocalBroadcastManager is easier to use than Intents, since you don't need to worry about creating Intents and handling Intent filters.
+
+### Ordered Broadcasts:
+Ordered Broadcasts are a type of Android broadcast that are processed in a specific order. They are sent to one receiver at a time, and the order in which they are received is determined by the priority of the receiver. The priority is set in the AndroidManifest.xml file, and the default priority is 0. Ordered Broadcasts can be used to ensure that a specific receiver processes a broadcast before any other receivers. This can be useful for situations where one receiver needs to perform a certain action before another receiver can proceed.
