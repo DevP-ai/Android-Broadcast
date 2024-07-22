@@ -26,4 +26,15 @@
  -> By using categories in addition to actions, you can ensure that your component only receives intents that are relevant to its functionality.
  
 
+## Common System Broadcasts
+
+<b>Battery Low:</b> Sent when the device's battery level drops below a certain threshold, allowing apps to conserve power or notify the user.
+
+<b>Screen On/Off:</b> Sent when the device's screen is turned on or off, allowing apps to adjust their behavior or save resources.
+
+<b>Device Boot:</b> Sent when the device finishes booting up, allowing apps to start up services or perform initialization tasks.
+
+<b>Network Connectivity Changes:</b> Sent when the device's network connectivity changes, allowing apps to respond to changes in network status or availability.
+
+<b>Timezone Changes:</b> Sent when the device's timezone changes, allowing apps to adjust their behavior or update time-sensitive information.
    
