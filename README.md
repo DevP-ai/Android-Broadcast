@@ -1,13 +1,13 @@
 ﻿# Android-Broadcast
 
 ## Broadcast Receiver
- -> Broadcast in android is the system-wide events that can occur when the device starts, when a message is received on the device or when incoming calls are received,or when device goes to aiplane modes, etc.
+ 1. Broadcast in android is the system-wide events that can occur when the device starts, when a message is received on the device or when incoming calls are received,or when device goes to aiplane modes, etc.
  
- -> Broadcast Receivers are used to respond to these system-wide events.
+ 2. Broadcast Receivers are used to respond to these system-wide events.
 
- -> Broadcast receivers allow us to register for the system and application events, and when that event happens, then the register receivers get notified.
+ 3. Broadcast receivers allow us to register for the system and application events, and when that event happens, then the register receivers get notified.
 
- -> Broadcast can be sent globally ot locally abd can be received by any registered app.
+ 4. Broadcast can be sent globally ot locally abd can be received by any registered app.
 
  <b>There are mainly two types of Broadcast Receivers:</b>
 
