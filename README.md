@@ -17,13 +17,13 @@
 
 ## Intent Filters
 
- -> In Android development, intent filters are used to specify which intents an activity, service, or broadcast receiver is willing to receive. In addition to actions, intent filters can use categories to provide more precise matching of intents.
+ 1. In Android development, intent filters are used to specify which intents an activity, service, or broadcast receiver is willing to receive. In addition to actions, intent filters can use categories to provide more precise matching of intents.
 
- -> Categories are used to declare additional information about the kind of component that should handle the intent. 
+ 2. Categories are used to declare additional information about the kind of component that should handle the intent. 
 
- -> When an intent is sent with a specific action and category, the system will only match it to components that have declared the same action and category in their intent filter.
+ 3. When an intent is sent with a specific action and category, the system will only match it to components that have declared the same action and category in their intent filter.
 
- -> By using categories in addition to actions, you can ensure that your component only receives intents that are relevant to its functionality.
+ 4. By using categories in addition to actions, you can ensure that your component only receives intents that are relevant to its functionality.
  
 
 ## Common System Broadcasts
