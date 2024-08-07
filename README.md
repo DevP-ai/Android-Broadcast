@@ -11,9 +11,9 @@
 
  <b>There are mainly two types of Broadcast Receivers:</b>
 
-   <b>1.Static Broadcast Receivers: </b>These types of receivers are declared in the manifest file and works even if the app is closed.
+   <b>Static Broadcast Receivers: </b>These types of receivers are declared in the manifest file and works even if the app is closed.
 
-   <b>2.Dynamic Broadcast Receivers: </b>These types of receivers work only if the app is active or minimized.
+   <b>Dynamic Broadcast Receivers: </b>These types of receivers work only if the app is active or minimized.
 
 ## Intent Filters
 
