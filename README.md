@@ -52,18 +52,18 @@ LocalBroadcastManager is a lightweight alternative to using Intents to communica
 Ordered Broadcasts are a type of Android broadcast that are processed in a specific order. They are sent to one receiver at a time, and the order in which they are received is determined by the priority of the receiver. The priority is set in the AndroidManifest.xml file, and the default priority is 0. Ordered Broadcasts can be used to ensure that a specific receiver processes a broadcast before any other receivers. This can be useful for situations where one receiver needs to perform a certain action before another receiver can proceed.
 
 ## Comparison with Other Messaging Mechanisms
-### 1.Intents:
+### Intents:
 
 Intents are a flexible way to start activities, services, or broadcast receivers, and can also be used to pass data between components. They are useful when you need to start a new component or pass data between components that are not directly connected. However, they can be relatively slow, especially when passing large amounts of data.
 
-### 2.Handlers:
+### Handlers:
 
 Handlers are used to send and process messages between threads. They are useful when you need to perform background tasks and update the UI on the main thread. Handlers can be more efficient than Intents because they don't require serialization, but they can be more difficult to use because you need to manage the thread and message queue.
 
-### 3.LocalBroadcastManager:
+### LocalBroadcastManager:
 
 LocalBroadcastManager is a lightweight alternative to using Intents to communicate between components within your app. It has several benefits over using Intents, including improved performance and security. Since LocalBroadcastManager only broadcasts to components within your app, it is more efficient than using a global broadcast. Additionally, since broadcasts are not sent outside of your app, there is no risk of sensitive data being leaked. Finally, LocalBroadcastManager is easier to use than Intents, since you don't need to worry about creating Intents and handling Intent filters.
 
-### 4.EventBus:
+### EventBus:
 
 EventBus is a third-party library that simplifies communication between components by using annotations. It is useful when you need to decouple components and reduce the amount of boilerplate code required to send and receive events. EventBus can be more efficient than Intents because it doesn't require serialization, but it can be less efficient than LocalBroadcastManager because it uses reflection to find event subscribers. Additionally, EventBus can be more difficult to debug because event subscribers are not explicitly defined in code.
